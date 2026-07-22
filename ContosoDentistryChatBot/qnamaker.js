@@ -1,38 +1,66 @@
-// QnAMakerConnector wraps the botbuilder-ai QnAMaker client so the bot can
-// ask the knowledge base a natural-language question and get back the top
-// answer (or null if the KB doesn't have a confident match).
+// Custom Question Answering (CQA) connector — modern replacement for classic QnA Maker.
+// Talks to the Language service's :query-knowledgebases endpoint via REST.
+//
+// Env vars (unchanged names for backwards compat):
+//   QnAEndpointHostName -> e.g. https://<lang>.cognitiveservices.azure.com/
+//   QnAAuthKey          -> Ocp-Apim-Subscription-Key (Language resource KEY 1)
+//   QnAKnowledgebaseId  -> the CQA project name (e.g. ContosoDentistryKB)
 
-const { QnAMaker } = require('botbuilder-ai');
+const fetch = require('node-fetch');
 
 class QnAMakerConnector {
     constructor(config) {
         if (!config || !config.knowledgeBaseId || !config.endpointKey || !config.host) {
-            console.warn('[QnAMakerConnector] Missing configuration - QnA Maker will be disabled.');
+            console.warn('[QnAMakerConnector] Missing configuration - QnA will be disabled.');
             this.enabled = false;
             return;
         }
-
         this.enabled = true;
-        this.qnaMaker = new QnAMaker({
-            knowledgeBaseId: config.knowledgeBaseId,
-            endpointKey: config.endpointKey,
-            host: config.host
-        });
-
-        this.SCORE_THRESHOLD = 0.5;
+        this.projectName = config.knowledgeBaseId;   // CQA "project name"
+        this.deploymentName = 'production';
+        this.key = config.endpointKey;
+        // Ensure host ends with exactly one slash for URL building
+        this.host = config.host.replace(/\/+$/, '') + '/';
+        this.SCORE_THRESHOLD = 0.5;                  // 0..1
     }
 
+    /**
+     * @param {string} question
+     * @returns {Promise<string|null>}
+     */
     async getAnswer(question) {
         if (!this.enabled || !question) return null;
 
-        try {
-            const results = await this.qnaMaker.getAnswersRaw(
-                { activity: { text: question } },
-                { top: 1, scoreThreshold: this.SCORE_THRESHOLD * 100 }
-            );
+        const url = `${ this.host }language/:query-knowledgebases`
+            + `?projectName=${ encodeURIComponent(this.projectName) }`
+            + `&api-version=2021-10-01`
+            + `&deploymentName=${ encodeURIComponent(this.deploymentName) }`;
 
-            const answers = results && results.answers ? results.answers : [];
-            if (answers.length > 0 && answers[0].score >= this.SCORE_THRESHOLD * 100) {
+        try {
+            const res = await fetch(url, {
+                method: 'POST',
+                headers: {
+                    'Ocp-Apim-Subscription-Key': this.key,
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    top: 3,
+                    question,
+                    includeUnstructuredSources: true,
+                    confidenceScoreThreshold: this.SCORE_THRESHOLD,
+                    answerSpanRequest: { enable: true }
+                })
+            });
+
+            if (!res.ok) {
+                const text = await res.text();
+                console.error(`[QnAMakerConnector] HTTP ${ res.status }: ${ text }`);
+                return null;
+            }
+
+            const data = await res.json();
+            const answers = data && data.answers ? data.answers : [];
+            if (answers.length > 0 && answers[0].confidenceScore >= this.SCORE_THRESHOLD) {
                 return answers[0].answer;
             }
             return null;
