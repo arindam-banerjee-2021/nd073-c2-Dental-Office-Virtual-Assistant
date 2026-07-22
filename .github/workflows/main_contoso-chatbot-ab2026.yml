@@ -26,15 +26,26 @@ jobs:
         with:
           node-version: '22.x'
 
-      - name: Zip source (Azure will run npm install on deploy)
+      - name: npm install (production deps)
         working-directory: ContosoDentistryChatBot
-        run: zip -r ../release.zip . -x "node_modules/*" ".git/*"
+        run: |
+          npm install --omit=dev --no-audit --no-fund
+          ls -la node_modules | head -20
+          echo "node_modules total size:"
+          du -sh node_modules
+
+      - name: Zip everything including node_modules
+        working-directory: ContosoDentistryChatBot
+        run: |
+          zip -qr ../release.zip . -x ".git/*"
+          ls -la ../release.zip
 
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v4
         with:
           name: node-app
           path: release.zip
+          retention-days: 1
 
   deploy:
     runs-on: ubuntu-latest
@@ -46,14 +57,11 @@ jobs:
         with:
           name: node-app
 
-      - name: Unzip artifact for deployment
-        run: unzip release.zip
-
-      - name: 'Deploy to Azure Web App'
+      - name: 'Deploy to Azure Web App (zip)'
         id: deploy-to-webapp
         uses: azure/webapps-deploy@v3
         with:
           app-name: 'contoso-chatbot-ab2026'
           slot-name: 'Production'
-          package: .
+          package: release.zip
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_9479D02CFBE24199AF577F723E1712CC }}
