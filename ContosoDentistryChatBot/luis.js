@@ -32,7 +32,7 @@ class LuisConnector {
         const empty = { topIntent: 'None', intentScore: 0, datetime: null, raw: null };
         if (!this.enabled || !utterance) return empty;
 
-        const url = `${ this.endpoint }/language/:analyze-conversations?api-version=2022-10-01-preview`;
+        const url = `${ this.endpoint }/language/:analyze-conversations?api-version=2023-04-01`;
 
         const body = {
             kind: 'Conversation',
