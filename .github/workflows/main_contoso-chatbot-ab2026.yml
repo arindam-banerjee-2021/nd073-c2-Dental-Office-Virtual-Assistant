@@ -26,13 +26,9 @@ jobs:
         with:
           node-version: '22.x'
 
-      - name: npm install (ChatBot)
+      - name: Zip source (Azure will run npm install on deploy)
         working-directory: ContosoDentistryChatBot
-        run: npm install --production
-
-      - name: Zip artifact for deployment
-        working-directory: ContosoDentistryChatBot
-        run: zip -r ../release.zip . -x "node_modules/.cache/*"
+        run: zip -r ../release.zip . -x "node_modules/*" ".git/*"
 
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v4
