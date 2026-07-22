@@ -10,14 +10,15 @@
     "watch": "nodemon ./index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "engines": {
+    "node": ">=18.0.0"
+  },
   "repository": {
     "type": "git",
     "url": "https://github.com/udacity/nd073-c2-Dental-Office-Virtual-Assistant.git"
   },
   "dependencies": {
     "botbuilder": "~4.19.0",
-    "botbuilder-ai": "~4.19.0",
-    "botbuilder-dialogs": "~4.19.0",
     "dotenv": "^16.0.3",
     "node-fetch": "^2.6.9",
     "restify": "~11.1.0"
