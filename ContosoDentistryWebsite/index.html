@@ -4,51 +4,45 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Contoso Dentistry — Modern, Gentle, Family Dental Care</title>
-    <meContoso Dentistry: modern, gentle dental care. Cleanings, whitening, Invisalign, implants and emergency care. Chat with our virtual assistant to book instantly." />
-    css/styles.css
+    <meta name="description" content="Contoso Dentistry: modern, gentle dental care." />
+    <link rel="stylesheet" href="css/styles.css" />
 </head>
 <body>
-    <!-- ============================= HEADER ============================= -->
     <header class="site-header">
         <div class="container nav">
-            #top
-                <span class="brand-icon" aria-hidden="true">🦷</span>
+            <a class="brand" href="#top">
+                <span class="brand-icon">🦷</span>
                 <span class="brand-name">Contoso Dentistry</span>
             </a>
-            <nav aria-label="Primary">
+            <nav>
                 <ul class="nav-links">
-                    <li>#services</li>
-                    <li>#team</li>
-                    <li>#testimonials</li>
-                    <li>#visitVisit Us</a></li>
-                    <li>#chat</li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#team">Our Team</a></li>
+                    <li><a href="#testimonials">Reviews</a></li>
+                    <li><a href="#visit">Visit Us</a></li>
+                    <li><a class="btn-outline" href="#chat">Book Now</a></li>
                 </ul>
             </nav>
         </div>
     </header>
 
-    <!-- ============================= HERO =============================== -->
     <section id="top" class="hero">
         <div class="container hero-inner">
             <div class="hero-copy">
                 <p class="eyebrow">Welcome to Contoso Dentistry</p>
                 <h1>A brighter smile starts with a gentler visit.</h1>
-                <p class="lead">
-                    Modern dental care in the heart of Redmond. Cleanings, whitening,
-                    Invisalign, implants and same-day emergency care — all from a team
-                    that actually listens.
-                </p>
+                <p class="lead">Modern dental care in Redmond. Cleanings, whitening, Invisalign, implants and same-day emergency care from a team that actually listens.</p>
                 <div class="hero-cta">
-                    #chat
-                    550142">📞 (425) 555-0142</a>
+                    <a class="btn-primary" href="#chat">Chat with our assistant</a>
+                    <a class="btn-secondary" href="tel:+14255550142">📞 (425) 555-0142</a>
                 </div>
-                <ul class="hero-badges" aria-label="Highlights">
+                <ul class="hero-badges">
                     <li>✔ Most insurance accepted</li>
                     <li>✔ Same-day emergency slots</li>
                     <li>✔ Free consult for new patients</li>
                 </ul>
             </div>
-            <div class="hero-art" aria-hidden="true">
+            <div class="hero-art">
                 <div class="hero-card">
                     <div class="hero-card-icon">🪥</div>
                     <h3>Book in 30 seconds</h3>
@@ -58,175 +52,93 @@
         </div>
     </section>
 
-    <!-- ============================= SERVICES =========================== -->
     <section id="services" class="section">
         <div class="container">
             <h2 class="section-title">Services we offer</h2>
             <p class="section-sub">A full-service practice for the whole family.</p>
             <div class="grid grid-3">
-                <article class="card">
-                    <div class="card-icon">🪥</div>
-                    <h3>Preventive care</h3>
-                    <p>Cleanings, exams and personalized hygiene plans to keep your smile healthy for the long run.</p>
-                </article>
-                <article class="card">
-                    <div class="card-icon">✨</div>
-                    <h3>Cosmetic dentistry</h3>
-                    <p>Professional whitening, veneers and smile makeovers tailored to how you want to look and feel.</p>
-                </article>
-                <article class="card">
-                    <div class="card-icon">😁</div>
-                    <h3>Orthodontics &amp; Invisalign</h3>
-                    <p>Certified Invisalign provider. Straighter teeth without brackets, in as little as 6 months.</p>
-                </article>
-                <article class="card">
-                    <div class="card-icon">🦷</div>
-                    <h3>Implants &amp; restorations</h3>
-                    <p>Crowns, bridges and dental implants that look, feel and function like the real thing.</p>
-                </article>
-                <article class="card">
-                    <div class="card-icon">👶</div>
-                    <h3>Pediatric dentistry</h3>
-                    <p>Fun, patient, kid-friendly visits from the very first tooth through the teen years.</p>
-                </article>
-                <article class="card">
-                    <div class="card-icon">🚑</div>
-                    <h3>Emergency care</h3>
-                    <p>Toothache? Broken tooth? Same-day emergency appointments every weekday.</p>
-                </article>
+                <article class="card"><div class="card-icon">🪥</div><h3>Preventive care</h3><p>Cleanings, exams and personalized hygiene plans.</p></article>
+                <article class="card"><div class="card-icon">✨</div><h3>Cosmetic dentistry</h3><p>Professional whitening, veneers and smile makeovers.</p></article>
+                <article class="card"><div class="card-icon">😁</div><h3>Orthodontics &amp; Invisalign</h3><p>Certified Invisalign provider. In as little as 6 months.</p></article>
+                <article class="card"><div class="card-icon">🦷</div><h3>Implants &amp; restorations</h3><p>Crowns, bridges and dental implants that look real.</p></article>
+                <article class="card"><div class="card-icon">👶</div><h3>Pediatric dentistry</h3><p>Fun, patient, kid-friendly visits.</p></article>
+                <article class="card"><div class="card-icon">🚑</div><h3>Emergency care</h3><p>Same-day emergency appointments every weekday.</p></article>
             </div>
         </div>
     </section>
 
-    <!-- ============================= TEAM =============================== -->
     <section id="team" class="section section-alt">
         <div class="container">
             <h2 class="section-title">Meet the team</h2>
             <p class="section-sub">Board-certified clinicians who treat you like family.</p>
             <div class="grid grid-3">
-                <article class="person">
-                    <div class="avatar" aria-hidden="true">PS</div>
-                    <h3>Dr. Priya Shah, DDS</h3>
-                    <p class="role">General &amp; Cosmetic Dentistry</p>
-                    <p>12+ years of experience, with a special focus on veneers and full-mouth restorations.</p>
-                </article>
-                <article class="person">
-                    <div class="avatar" aria-hidden="true">ML</div>
-                    <h3>Dr. Marcus Lee, DMD</h3>
-                    <p class="role">Orthodontics &amp; Invisalign</p>
-                    <p>Certified Invisalign Diamond provider. Harvard-trained orthodontist.</p>
-                </article>
-                <article class="person">
-                    <div class="avatar" aria-hidden="true">AP</div>
-                    <h3>Dr. Anaya Patel, DDS</h3>
-                    <p class="role">Pediatric Dentistry</p>
-                    <p>Turns every kid's visit into an adventure. First visits by age one recommended.</p>
-                </article>
+                <article class="person"><div class="avatar">PS</div><h3>Dr. Priya Shah, DDS</h3><p class="role">General &amp; Cosmetic Dentistry</p><p>12+ years of experience.</p></article>
+                <article class="person"><div class="avatar">ML</div><h3>Dr. Marcus Lee, DMD</h3><p class="role">Orthodontics &amp; Invisalign</p><p>Certified Invisalign Diamond provider.</p></article>
+                <article class="person"><div class="avatar">AP</div><h3>Dr. Anaya Patel, DDS</h3><p class="role">Pediatric Dentistry</p><p>Turns every kid's visit into an adventure.</p></article>
             </div>
         </div>
     </section>
 
-    <!-- ============================= TESTIMONIALS ======================= -->
     <section id="testimonials" class="section">
         <div class="container">
             <h2 class="section-title">What our patients say</h2>
-            <p class="section-sub">Real reviews from real Contoso Dentistry patients.</p>
             <div class="grid grid-3">
-                <blockquote class="quote">
-                    <p>"I actually look forward to my cleanings now. The team is warm, professional, and never makes me feel rushed."</p>
-                    <cite>— Priyanka R., patient since 2022</cite>
-                    <div class="stars" aria-label="5 out of 5 stars">★★★★★</div>
-                </blockquote>
-                <blockquote class="quote">
-                    <p>"Booked my Invisalign consult through the chatbot on a Sunday night. So easy. Dr. Lee explained everything in plain English."</p>
-                    <cite>— Jamie T., Invisalign patient</cite>
-                    <div class="stars" aria-label="5 out of 5 stars">★★★★★</div>
-                </blockquote>
-                <blockquote class="quote">
-                    <p>"My kids used to dread the dentist. Dr. Patel turned their visit into a game — now they ask when they can go back."</p>
-                    <cite>— Sana M., mom of two</cite>
-                    <div class="stars" aria-label="5 out of 5 stars">★★★★★</div>
-                </blockquote>
+                <blockquote class="quote"><p>"I look forward to my cleanings now. Warm and professional."</p><cite>— Priyanka R.</cite><div class="stars">★★★★★</div></blockquote>
+                <blockquote class="quote"><p>"Booked my Invisalign consult through the chatbot on a Sunday. So easy."</p><cite>— Jamie T.</cite><div class="stars">★★★★★</div></blockquote>
+                <blockquote class="quote"><p>"My kids ask when they can go back to the dentist now!"</p><cite>— Sana M.</cite><div class="stars">★★★★★</div></blockquote>
             </div>
         </div>
     </section>
 
-    <!-- ============================= VISIT ============================== -->
     <section id="visit" class="section section-alt">
         <div class="container grid grid-2">
             <div>
                 <h2 class="section-title">Visit us</h2>
-                <p class="section-sub">We're easy to find, and there's free parking.</p>
                 <ul class="info-list">
                     <li><strong>Address:</strong> 123 Smile Street, Suite 400, Redmond, WA 98052</li>
-                    <li><strong>Phone:</strong> tel:+14255550142</li>
-                    <li><strong>Email:</strong> hello@contosodentistry.com</li>
-                    <li><strong>Hours:</strong>
-                        <ul>
-                            <li>Mon – Fri: 8:00 AM – 6:00 PM</li>
-                            <li>Saturday: 9:00 AM – 2:00 PM</li>
-                            <li>Sunday: Closed</li>
-                        </ul>
-                    </li>
+                    <li><strong>Phone:</strong> <a href="tel:+14255550142">(425) 555-0142</a></li>
+                    <li><strong>Email:</strong> <a href="mailto:hello@contosodentistry.com">hello@contosodentistry.com</a></li>
+                    <li><strong>Hours:</strong> Mon-Fri 8AM-6PM, Sat 9AM-2PM, Sun Closed</li>
                 </ul>
-                <div class="socials" aria-label="Social media">
-                    #
-                    #
-                    #
-                    #
-                    #
-                </div>
             </div>
-            <div class="map-card" aria-hidden="true">
-                <div class="map-placeholder">
-                    <div>📍</div>
-                    <p>123 Smile Street<br />Redmond, WA 98052</p>
-                </div>
+            <div class="map-card">
+                <div class="map-placeholder"><div>📍</div><p>123 Smile Street<br />Redmond, WA 98052</p></div>
             </div>
         </div>
     </section>
 
-    <!-- ============================= CHAT =============================== -->
     <section id="chat" class="section chat-section">
         <div class="container">
             <h2 class="section-title">Chat with our virtual assistant</h2>
             <p class="section-sub">Ask a question or book an appointment. Try <em>"what times are available?"</em></p>
-
             <div id="webchat" role="main"></div>
-            https://cdn.botframework.com/botframework-webchat/latest/webchat.js
+            <script crossorigin="anonymous" src="https://cdn.botframework.com/botframework-webchat/latest/webchat.js"></script>
             <script>
-                window.WebChat.renderWebChat(
-                    {
-                        directLine: window.WebChat.createDirectLine({
-                            secret: '8G75aSQny7QbVfDvsPkBeP3hJPUZ9Mn8f2eFgCSdhPR3wl2Z1fz6JQQJ99CGACGhslBAArohAAABAZBS1A6c.950s7b8SY4Hn7cBpPiqFDtUnodWuKzKuc2LgrrrEjhRlE7Ygw6b4JQQJ99CGACGhslBAArohAAABAZBS3Buy'
-                        }),
-                        userID: 'WEBSITE_USER',
-                        username: 'Website User',
-                        locale: 'en-US',
-                        styleOptions: {
-                            backgroundColor: '#f8fbff',
-                            bubbleBackground: '#eaf2ff',
-                            bubbleFromUserBackground: '#0b5cff',
-                            bubbleFromUserTextColor: '#ffffff',
-                            botAvatarInitials: 'CD',
-                            userAvatarInitials: 'You',
-                            rootHeight: '520px'
-                        }
-                    },
-                    document.getElementById('webchat')
-                );
+                window.WebChat.renderWebChat({
+                    directLine: window.WebChat.createDirectLine({
+                        secret: '8G75aSQny7QbVfDvsPkBeP3hJPUZ9Mn8f2eFgCSdhPR3wl2Z1fz6JQQJ99CGACGhslBAArohAAABAZBS1A6c.950s7b8SY4Hn7cBpPiqFDtUnodWuKzKuc2LgrrrEjhRlE7Ygw6b4JQQJ99CGACGhslBAArohAAABAZBS3Buy'
+                    }),
+                    userID: 'WEBSITE_USER',
+                    username: 'Website User',
+                    locale: 'en-US',
+                    styleOptions: {
+                        backgroundColor: '#f8fbff',
+                        bubbleFromUserBackground: '#0b5cff',
+                        bubbleFromUserTextColor: '#ffffff',
+                        botAvatarInitials: 'CD',
+                        userAvatarInitials: 'You',
+                        rootHeight: '520px'
+                    }
+                }, document.getElementById('webchat'));
             </script>
         </div>
     </section>
 
-    <!-- ============================= FOOTER ============================= -->
     <footer class="site-footer">
         <div class="container footer-inner">
-            <p>© <span id="year"></span> Contoso Dentistry. All rights reserved.</p>
+            <p>© Contoso Dentistry. All rights reserved.</p>
             <p>#top</p>
         </div>
     </footer>
-
-    js/main.js
 </body>
 </html>
