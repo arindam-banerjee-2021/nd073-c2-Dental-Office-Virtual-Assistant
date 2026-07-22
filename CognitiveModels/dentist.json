@@ -1,0 +1,69 @@
+{
+  "luis_schema_version": "7.0.0",
+  "intents": [
+    { "name": "None" },
+    { "name": "GetAvailability" },
+    { "name": "ScheduleAppointment" }
+  ],
+  "entities": [],
+  "composites": [],
+  "closedLists": [],
+  "patternAnyEntities": [],
+  "regex_entities": [],
+  "prebuiltEntities": [
+    { "name": "datetimeV2", "roles": [] }
+  ],
+  "model_features": [],
+  "regex_features": [],
+  "patterns": [
+    { "pattern": "book me for {datetimeV2}", "intent": "ScheduleAppointment" },
+    { "pattern": "schedule me for {datetimeV2}", "intent": "ScheduleAppointment" },
+    { "pattern": "what times are available {datetimeV2}", "intent": "GetAvailability" }
+  ],
+  "utterances": [
+    { "text": "what times are available", "intent": "GetAvailability", "entities": [] },
+    { "text": "when can i come in", "intent": "GetAvailability", "entities": [] },
+    { "text": "what appointments are open", "intent": "GetAvailability", "entities": [] },
+    { "text": "do you have any openings", "intent": "GetAvailability", "entities": [] },
+    { "text": "check availability", "intent": "GetAvailability", "entities": [] },
+    { "text": "what slots do you have this week", "intent": "GetAvailability", "entities": [] },
+    { "text": "any openings tomorrow", "intent": "GetAvailability", "entities": [] },
+    { "text": "what's open next monday", "intent": "GetAvailability", "entities": [] },
+    { "text": "when is your next available appointment", "intent": "GetAvailability", "entities": [] },
+    { "text": "what days do you have free", "intent": "GetAvailability", "entities": [] },
+    { "text": "show me your schedule", "intent": "GetAvailability", "entities": [] },
+    { "text": "are there any appointments left this week", "intent": "GetAvailability", "entities": [] },
+    { "text": "what appointments are available", "intent": "GetAvailability", "entities": [] },
+
+    { "text": "schedule me for tomorrow at 3pm", "intent": "ScheduleAppointment", "entities": [] },
+    { "text": "book me for friday at 10am", "intent": "ScheduleAppointment", "entities": [] },
+    { "text": "i would like an appointment on monday at 9am", "intent": "ScheduleAppointment", "entities": [] },
+    { "text": "can you set me up for next tuesday at 2pm", "intent": "ScheduleAppointment", "entities": [] },
+    { "text": "make me an appointment for tomorrow morning", "intent": "ScheduleAppointment", "entities": [] },
+    { "text": "please book me a slot next week", "intent": "ScheduleAppointment", "entities": [] },
+    { "text": "reserve tomorrow at 4pm for a cleaning", "intent": "ScheduleAppointment", "entities": [] },
+    { "text": "i want to come in on thursday", "intent": "ScheduleAppointment", "entities": [] },
+    { "text": "i need a cleaning on friday at noon", "intent": "ScheduleAppointment", "entities": [] },
+    { "text": "book an appointment for me tomorrow at 11am", "intent": "ScheduleAppointment", "entities": [] },
+    { "text": "schedule my visit for next wednesday at 3pm", "intent": "ScheduleAppointment", "entities": [] },
+    { "text": "sign me up for the 10am slot on monday", "intent": "ScheduleAppointment", "entities": [] },
+    { "text": "can i come in tomorrow at 2 pm", "intent": "ScheduleAppointment", "entities": [] },
+    { "text": "book me for tomorrow at 3pm", "intent": "ScheduleAppointment", "entities": [] },
+
+    { "text": "hello", "intent": "None", "entities": [] },
+    { "text": "thanks", "intent": "None", "entities": [] },
+    { "text": "what are your hours", "intent": "None", "entities": [] },
+    { "text": "do you accept my insurance", "intent": "None", "entities": [] },
+    { "text": "where are you located", "intent": "None", "entities": [] },
+    { "text": "who is on the team", "intent": "None", "entities": [] }
+  ],
+  "settings": [
+    { "name": "NormalizeDiacritics", "value": true },
+    { "name": "NormalizePunctuation", "value": true }
+  ],
+  "tokenizerVersion": "1.0.0",
+  "name": "ContosoDentistry",
+  "desc": "LUIS model for the Contoso Dentistry Virtual Assistant. Detects GetAvailability and ScheduleAppointment intents and extracts datetimeV2 entities.",
+  "culture": "en-us",
+  "versionId": "0.1"
+}
